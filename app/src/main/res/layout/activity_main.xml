@@ -13,7 +13,7 @@
         android:id="@+id/etMessage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Introduce el texto a reproducir."/>
+        android:hint="@string/hint_message"/>
         <!-- Width hace referencia al ancho, match parent hace que se ocupe la totalidad del layout,
         height hace referencia al alto, wrap content ajusta las dimensiones del widget al texto que contiene,
         hint sirve para mostrar un texto en el edit text antes de que se introduzca algún texto-->
@@ -23,7 +23,7 @@
         android:id="@+id/btnPlay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Play"
+        android:text="@string/button_play"
         android:layout_margin="16dp"/>
         <!-- margin sirve para espaciar (hacia afuera) el botón -->
 
@@ -32,7 +32,7 @@
         android:id="@+id/tvStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Mi primer programita en android"/>
+        android:text="@string/test_status_init"/>
 
 
 

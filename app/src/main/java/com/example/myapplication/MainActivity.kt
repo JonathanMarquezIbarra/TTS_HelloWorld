@@ -10,7 +10,7 @@ import java.util.*
 class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     // El signo de interrogación indica que la variable podría ser null
-    var tts:TextToSpeech? = null
+    private var tts:TextToSpeech? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,18 +23,33 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     }
 
     private fun speak(){
-        var message:String = findViewById<TextView>(R.id.tvStatus).text.toString()
+        var message:String = findViewById<TextView>(R.id.etMessage).text.toString()
         // La doble exclamación indica que se puede invocar cualqueir método y que no será null
+        if (message.isEmpty()){
+            findViewById<TextView>(R.id.tvStatus).text = "Introduzca un texto."
+        }
+
+
         tts!!.speak(message,TextToSpeech.QUEUE_FLUSH,null,"")
 
     }
 
     override fun onInit(status: Int) {
         if (status == TextToSpeech.SUCCESS){
-            findViewById<TextView>(R.id.tvStatus).text = "Welcome to the Kotlin World !!!"
-            tts!!.setLanguage(Locale.US)
+            findViewById<TextView>(R.id.tvStatus).text = getString(R.string.tts_active)
+            tts!!.language = Locale("ES")
         } else {
-            findViewById<TextView>(R.id.tvStatus).text = "No disponible"
+            findViewById<TextView>(R.id.tvStatus).text = getString(R.string.tts_no_active)
         }
     }
+
+    override fun onDestroy() {
+        if (tts != null) {
+            tts!!.stop()
+            tts!!.shutdown()
+        }
+        super.onDestroy()
+    }
+
+
 }

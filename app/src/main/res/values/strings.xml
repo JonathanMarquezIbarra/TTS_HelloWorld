@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="tts_active">Listo !!!</string>
+    <string name="tts_no_active">No disponible</string>
+    <string name="hint_message">Introduce el texto a reproducir.</string>
+    <string name="button_play">Play</string>
+    <string name="test_status_init">Mi primer programita en android</string>
 </resources>
